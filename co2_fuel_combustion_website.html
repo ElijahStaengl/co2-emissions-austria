@@ -87,6 +87,18 @@ footer {
     color: #444444;
 }
 
+a {
+    color: #d95f0e;
+}
+
+a:visited {
+    color: #d95f0e;
+}
+
+a:hover {
+    color: #e07f3e;
+}
+
 </style>
 
 </head>
@@ -105,30 +117,41 @@ footer {
 
     
     <p>
-        This website presents current CO₂ emissions from the combustion of liquid and gaseous fuel combustion within the energy sector. 
-        The calculations presented are rought calculations using monthly fuel combustion activities and is designed to mimic CO₂ emissions from 1A and 1D fuel combustiuon published in Austria's National Inventory Document.
+        This website presents current CO₂ emissions from the combustion of liquid and gaseous fuels within the energy sector. 
+        The calculations presented are rough calculations using monthly fuel combustion activities and should present similar results to the CO₂ emissions from fuel combustion published in Austria's National Inventory Document.
     </p>
     <p>
-        The three different categories for which current calculated CO₂ emissions are shown are: Natural Gas, Oil Products and International Aviation.
+        CO₂ emissions from these three categories are presented: Natural Gas, Oil Products and International Aviation.
     </p>
     <p>
-        Emissions from natural gas are calculated from the inland gas consumption data published by E-Control. Gas used for non-energy purposes is subtracted with a constant calculated from gas connsumption data for ammonia production published in Austria's National Inventory Document 2026
+        Emissions from natural gas are calculated from gas consumption data published by E-Control. The data is modified by subtracting gas used for non-energy purposes.
     </p>
     <p>
-        Emissions from oil products is calculated from gross inland deliviers publihsed by Eurostat. The fuel types 
-        gasoil and dieseloil (without biofuels), fuel oil, liquified petroleum gas (LPG), gasoline (without biofuels) and kerosene (without biofuels)
-        are used. Most of the kerosene is however accounted towards international aviation. To account for missing consumption activities in the raw data, a constant calculated by the difference to the CO₂ emissions published in Austria's Common Reporting Tables 2026 (CRT) is added.
+        Emissions from oil products are calculated from consumption data published by Eurostat. 
+        The fuel types gasoil and dieseloil, fuel oil, liquified petroleum gas (LPG), gasolin and kerosene are used. 
+        Most of the kerosene, however, is accounted towards international aviation. To include missing consumption activities in the raw data, constant monthly CO₂ emissions of 240 tons are added.
     </p>
     <p>
-        CO₂ emissions from international aviation is calculated from 98.83% of kerosene consumption published in the before mentioned data from Eurostat. This value is the mean distribution between domestic and international aviation from the CRT in the years 2022 to 2024.
+        CO₂ emissions from international aviation are calculated from 98.83% of kerosene consumption published in the dataset from Eurostat.
+    </p>
+    <p>
+        To receive more detailed information about the methodology, the code can be seen in a  
+        <a href="https://github.com/ElijahStaengl/co2_emissions_fuel_combustion_austria" target="_blank">
+        GitHub Repository
+    </a>. 
+        This project is part of the bachelor thesis from Elijah Stängl. A complete documentation of the calculations is available in the 
+        <a href="https://test" target="_blank">
+        bachelor thesis
+    </a>
+        available online.
     </p>
 </header>
 
 <section>
 
-    <h2>Short time trends of CO₂ emissions</h2>
+    <h2>Short-term trends of CO₂ emissions</h2>
 
-    <p>In the following graphs the monthly CO₂ emissions from the current year and the three years before can be seen. The emissions are presented as monthly emissions on the left and as cummulative emissions on the right. 
+    <p>In the following graphs, the monthly CO₂ emissions from the current year and the three years before can be seen. The emissions are presented as monthly emissions on the left and as cumulative emissions on the right. 
     </p>
 
     <h3>Natural Gas</h3>
@@ -170,17 +193,17 @@ footer {
 </section>
 <section>
 
-    <h2>Long time trends of CO₂ emissions </h2>
+    <h2>Long-term trends of CO₂ emissions </h2>
 
     <p>
-        In the following graphs the long time trends of the calculated CO₂ emissions are shown. To better visualize the trends, the emissions are sometimes shown as a rolling 12 months mean.
-        The last 12 years are shown in all figures. This means that one line consists of 144 datapoints.
+        In the following graphs, the long-term trends of the calculated CO₂ emissions are shown. To better visualise the trends, the emissions are also shown as the average of the last 12 months.
+        All months of the past 12 years are shown in all figures. This means that one line consists of 144 values.
     </p>
 
-    <h3>Long time trends of all calculated CO₂ emissions</h3>
+    <h3>Long-term trends of all calculated CO₂ emissions</h3>
 
     <p>
-        The category "Total" consists of the sum over all calculated CO₂ emissions from Oil Products, Natural Gas and International Aviation. It is important to mention, that International Aviation is normally not accounted towards the emissions of the given country.
+        The category "Total" consists of the sum over all calculated CO₂ emissions from Oil Products, Natural Gas and International Aviation. It is important to mention that International Aviation is normally not accounted towards the emissions of the given country.
     </p>
 
     <div class="chart-row">
@@ -203,7 +226,7 @@ footer {
 
 </section>
 
-    <h3>Long time trends of Oil Products</h3>
+    <h3>Long-term trends of Oil Products</h3>
 
     <p>
         The category "Others" consists of the fuel types fuel oil, LPG and kerosene (domestic aviation).
@@ -221,7 +244,6 @@ footer {
 </section>
 
 <footer>
-    This website is part of the bachelor thesis from Elijah Stängl.
     More information about the methodology can be found in the
     <a href="https://test" target="_blank">
         bachelor thesis
