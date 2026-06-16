@@ -3,6 +3,10 @@ from src import load_data as ld
 from src import data_preparation as prep
 from src import calculations_co2 as calc
 from src import plotting as pl
+import os
+
+os.makedirs("figures", exist_ok=True)
+os.makedirs("data/output_data", exist_ok=True)
 
 # --- Information ---
 # All calculated dataframes are with monthly values, if not stated otherwise
