@@ -1,4 +1,5 @@
 
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import pandas as pd
 import locale
@@ -62,14 +63,17 @@ COLOR3 = "#fe9929"
 COLOR2 = "#d95f0e"
 COLOR1 = "#993404"
 
+RED = "#A51E14FF"
+BLUE = "#0B3C5CFF"
+
 
 # ==================================================
 # Creating plots comparing CRT and calculations
 # ==================================================
 
 def style_comparison(ax):
-    ax.lines[0].set_color("tab:blue")   
-    ax.lines[1].set_color("tab:red")
+    ax.lines[0].set_color(BLUE)   
+    ax.lines[1].set_color(RED)
     plt.legend(["Common Reporting Table (CRT)", "Calculation"])
     plt.xlabel("")
     plt.ylabel("CO₂ emissions in kt")
@@ -79,7 +83,7 @@ def style_comparison(ax):
     plt.subplots_adjust(bottom=0.11)
 
 def style_difference(ax):
-    ax.lines[0].set_color("tab:red")
+    ax.lines[0].set_color(RED)
     plt.xlabel("")
     plt.ylabel("Difference from CRT in percent")
     for line in ax.lines:
@@ -514,3 +518,37 @@ def plot_short_time_together(co2_gas, co2_oil, co2_int_aviation):
         ncol=4,
         frameon=False)
     save_plot("emissions_short_time_all.png", fig=fig)
+
+
+# ==================================================
+# Visualising share of total emissions
+# ==================================================
+
+
+def plot_share_of_total_emissions(crt_emissions_oil, crt_emissions_gas, emissions_total):
+    emissions_used = sum_of_two_df(crt_emissions_oil, crt_emissions_gas)
+
+    mpl.rcParams["hatch.linewidth"] = 8.5
+    ax = emissions_total.iloc[20:,:].plot.area(color="#A51E14C3", legend=False)
+    ax.fill_between(emissions_used.iloc[20:,:].index, 0, emissions_used.iloc[20:,0], facecolor="none", hatch="/", edgecolor="#0B3C5CA0", linewidth=0)
+
+    emissions_total.iloc[20:, 0].plot(ax=ax, color=RED, linewidth=4, legend=True, label="Total Emissions Austria (without LULUCF)")
+    emissions_used.iloc[20:, 0].plot(ax=ax, color=BLUE, linewidth=4, legend=True, label="Emissions Covered by Calculations (Oil and Gas)")
+ 
+
+
+    plt.xlabel("")
+    plt.ylabel("CO₂ equivalents in kt")
+    plt.title("Share of Yearly CO₂ Equivalents Included in Projection")
+
+    plt.subplots_adjust(bottom=0.13)
+
+    plt.figtext(
+        0.5,
+        0.02,
+        f"Source: Data from Austria's NID/CRT 2026",
+        ha="center",
+        fontsize=8,
+        color="gray")
+    
+    save_plot("share_of_total_emissions.png", ax)

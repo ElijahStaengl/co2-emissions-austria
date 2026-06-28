@@ -25,6 +25,7 @@ save.save_input_df_to_csv(raw_oil_consumption_kt, "input_oil")
 raw_aviation_percent = ld.load_aviation_percent()
 raw_1a_combustion = ld.load_crt_1a_combustion()
 raw_1d_international_aviation = ld.load_crt_1d_international_aviation()
+raw_total_emissions = ld.load_crt_total_emissions()
 
 
 # ==================================================
@@ -74,6 +75,8 @@ pl.plot_short_time_together(co2_calculated_gas_kt, co2_calculated_oil_kt, co2_ca
 
 pl.plot_all_longtime(co2_calculated_gas_kt, co2_calculated_oil_kt, co2_calculated_int_aviation_kt)
 pl.plot_different_oil_products(co2_calculated_oil_kt)
+
+pl.plot_share_of_total_emissions(co2_liquid_yearly_crt_kt, co2_gaseous_yearly_crt_kt, raw_total_emissions)
 
 
 # ==================================================

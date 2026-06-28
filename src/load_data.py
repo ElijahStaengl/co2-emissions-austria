@@ -48,3 +48,9 @@ def load_crt_1d_international_aviation():
     data = pd.read_csv(f'data/input_data/international_bunker_aviation.csv', sep=";", index_col = 0, parse_dates=True, decimal=",")
     return data
 
+def load_crt_total_emissions():
+    """Returns total emission data.
+    Automatically created CSVs from "Austria. 2026 Common Reporting Table (CRT)" (Publication date: 16 Apr 2026)"""
+    data = pd.read_csv(f'data/input_data/total_emissions.csv', sep=";", index_col = 0, parse_dates=True, decimal=",")
+    return data
+
