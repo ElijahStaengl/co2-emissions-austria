@@ -189,7 +189,7 @@ def plotting_total_accuracy(calculated_co2_total_oil, calculated_co2_gas, crt_co
 
 def plotting_difference_oil_uncorrected(difference_uncorrected):
     ax = difference_uncorrected.plot(title="Uncorrected Calculated CO₂ from Oil Products: Difference from CRT")
-    ax.lines[0].set_color("tab:red")
+    ax.lines[0].set_color(RED)
     plt.xlabel("")
     plt.ylabel("Difference from CRT in kt CO₂")
     for line in ax.lines:
